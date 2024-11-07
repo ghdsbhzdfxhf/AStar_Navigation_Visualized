@@ -6,20 +6,77 @@ using System.Threading.Tasks;
 
 namespace PacmanAStar.Models
 {
-    class AStarManhattan
+    class AStar
     {
 
-        public static (int, object) A_STAR((int, int) start, (int, int) destination, int[,] grid)
+        public static (int, List<(int, int)>, int) A_STAR_E((int, int) start, (int, int) destination, int[,] grid)
+        {
+            List<(int, int)> open_list = new List<(int, int)> { start };
+            Dictionary<(int, int), double> visited = new Dictionary<(int, int), double> { { start, 0 } };
+            Dictionary<(int, int), (int, int)?> parent = new Dictionary<(int, int), (int, int)?> { { start, null } };
+
+            int max_frontier = 0;
+            int node_count = 0;
+            List<(int, int)> directions = new List<(int, int)>
+        {
+            (0, 1),
+            (1, 0),
+            (0, -1),
+            (-1, 0)
+        };
+
+            while (open_list.Count > 0)
+            {
+                max_frontier = Math.Max(max_frontier, open_list.Count);
+                var current_node = open_list.OrderBy(node => visited[node] + equlidean(node, destination)).First();
+                open_list.Remove(current_node);
+
+                if (current_node.Equals(destination))
+                {
+                    return (node_count, ReconstructPath(current_node, parent), max_frontier);
+                }
+
+                foreach (var direction in directions)
+                {
+                    var new_position = (current_node.Item1 + direction.Item1, current_node.Item2 + direction.Item2);
+
+                    if (IsWithinBounds(new_position, grid)
+                        && grid[new_position.Item1, new_position.Item2] != 1
+                        && !visited.ContainsKey(new_position))
+                    {
+                        double new_cost = visited[current_node] + 1;
+                        if (!visited.ContainsKey(new_position) || visited[new_position] < new_cost)
+                        {
+                            visited[new_position] = new_cost;
+                            open_list.Add(new_position);
+                            parent[new_position] = current_node;
+                            node_count += 1;
+                        }
+                    }
+                }
+            }
+
+            return (node_count, null, max_frontier); // "Not Reachable"
+        }
+
+        public static double equlidean((int, int) node, (int, int) destination)
+        {
+            return Math.Sqrt(Math.Pow(destination.Item1 - node.Item1, 2) + Math.Pow(destination.Item2 - node.Item2, 2));
+        }
+
+        public static (int, object, int) A_STAR((int, int) start, (int, int) destination, int[,] grid)
         {
             List<(int, int)> openList = new List<(int, int)> { start };
             Dictionary<(int, int), int> visited = new Dictionary<(int, int), int> { { start, 0 } };
             Dictionary<(int, int), (int, int)?> parent = new Dictionary<(int, int), (int, int)?> { { start, null } };
 
+            int max_frontier = 0;
             int nodeCount = 0;
             (int, int)[] directions = new (int, int)[] { (0, 1), (1, 0), (0, -1), (-1, 0) };
 
             while (openList.Count > 0)
             {
+                max_frontier = Math.Max(max_frontier, openList.Count);
                 (int, int) currentNode = openList[0];
                 foreach (var node in openList)
                 {
@@ -32,7 +89,7 @@ namespace PacmanAStar.Models
 
                 if (currentNode == destination)
                 {
-                    return (nodeCount, ReconstructPath(currentNode, parent));
+                    return (nodeCount, ReconstructPath(currentNode, parent), max_frontier);
                 }
 
                 foreach (var direction in directions)
@@ -53,7 +110,7 @@ namespace PacmanAStar.Models
                 }
             }
 
-            return (nodeCount, "Not Reachable");
+            return (nodeCount, "Not Reachable", max_frontier);
         }
 
         public static int Manhattan((int, int) node, (int, int) destination)

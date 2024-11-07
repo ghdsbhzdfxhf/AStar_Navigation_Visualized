@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PacmanAStar.AStarResults"
-             Title="A* Manhattan results">
+             x:Class="PacmanAStar.AStarEResults"
+             Title="A* Equlidean results">
 
     <HorizontalStackLayout x:Name="main_layout">
 
-
-        <Grid x:Name="main_grid" ColumnSpacing="1" RowSpacing="1" Margin="10" MaximumWidthRequest="600" MaximumHeightRequest="600" WidthRequest="600" HeightRequest="600" VerticalOptions="Fill" HorizontalOptions="Start">
+        <Grid x:Name="e_grid" ColumnSpacing="1" RowSpacing="1" Margin="70" MaximumWidthRequest="600" MaximumHeightRequest="600" WidthRequest="600" HeightRequest="600" VerticalOptions="Fill" HorizontalOptions="Start">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>

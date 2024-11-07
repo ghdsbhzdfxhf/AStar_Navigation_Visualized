@@ -12,9 +12,12 @@
         <Entry x:Name="GridSize" Placeholder="Enter grid size"/>
         <Entry x:Name="StartNode" Placeholder="Enter start node"/>
         <Entry x:Name="DestinationNode" Placeholder="Enter destination node"/>
-        <Button Text="SUBMIT" Clicked="Button_Clicked" FontSize="Large" Padding="5"/>
 
-        <Label x:Name="Results" Text="xxxxx"/>
+        <Button x:Name="GridGenerate" Text="Generate new grid" Clicked="GridGenerate_Clicked" Margin="10" MaximumWidthRequest="600"/>
+        <Button Text="A* Manhattan" Clicked="A_Start_Manhattan" FontSize="Large" Padding="5" Margin="10" MaximumWidthRequest="600"/>
+        <Button Text="A* Equlidean" Clicked="A_Start_Equlidean" FontSize="Large" Padding="5" Margin="10" MaximumWidthRequest="600"/>
+        <Button Text="Results" Clicked="Results_clicked" FontSize="Large" Padding="5" Margin="10" MaximumWidthRequest="600"/>
+        
 
     </StackLayout>
 
