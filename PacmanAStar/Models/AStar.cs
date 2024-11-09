@@ -72,7 +72,7 @@ namespace PacmanAStar.Models
 
             int max_frontier = 0;
             int nodeCount = 0;
-            (int, int)[] directions = new (int, int)[] { (0, 1), (1, 0), (0, -1), (-1, 0) };
+            (int, int)[] directions = { (0, 1), (1, 0), (0, -1), (-1, 0) };
 
             while (openList.Count > 0)
             {

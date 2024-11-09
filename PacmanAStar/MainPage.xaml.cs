@@ -24,8 +24,9 @@ namespace PacmanAStar
             var results = AStar.A_STAR((int.Parse(start_node[0].ToString()), int.Parse(start_node[1].ToString())), (int.Parse(destination[0].ToString()), int.Parse(destination[1].ToString())), random_grid);
             int node_count = results.Item1;
             List<(int, int)> path = results.Item2 as List<(int, int)>;
+            int max_frontier = results.Item3;
 
-            Navigation.PushAsync(new AStarResults(path, node_count, random_grid, grid_size, start_node));
+            Navigation.PushAsync(new AStarResults(path, node_count, random_grid, grid_size, start_node, max_frontier));
         }
         
         private void A_Start_Equlidean(object sender, EventArgs e)
