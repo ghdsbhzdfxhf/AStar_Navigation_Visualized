@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PacmanAStar.Results2"
+             Title="Results2">
+
+    <HorizontalStackLayout x:Name="main_horizontal">
+
+        <VerticalStackLayout  Margin="15" x:Name="bfs_stack">
+
+            <Label Text="BFS"/>
+            <Grid x:Name="bfs_grid" ColumnSpacing="1" RowSpacing="1" MaximumWidthRequest="450" MaximumHeightRequest="450" WidthRequest="450" HeightRequest="450">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Margin="15" x:Name="dfs_stack">
+
+            <Label Text="DFS"/>
+            <Grid x:Name="dfs_grid" ColumnSpacing="1" RowSpacing="1" MaximumWidthRequest="450" MaximumHeightRequest="450" WidthRequest="450" HeightRequest="450">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Margin="15" x:Name="ids_stack">
+
+            <Label Text="IDS"/>
+            <Grid x:Name="ids_grid" ColumnSpacing="1" RowSpacing="1" MaximumWidthRequest="450" MaximumHeightRequest="450" WidthRequest="450" HeightRequest="450">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+        </VerticalStackLayout>
+
+    </HorizontalStackLayout>
+    
+</ContentPage>

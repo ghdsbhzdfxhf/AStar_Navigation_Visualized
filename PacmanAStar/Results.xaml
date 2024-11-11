@@ -8,7 +8,7 @@
         <VerticalStackLayout x:Name="e_layout">
 
             <Label Text="Equlidean" FontSize="Header" Margin="10"/>
-            <Grid x:Name="e_grid" ColumnSpacing="1" RowSpacing="1" Margin="10" MaximumWidthRequest="600" MaximumHeightRequest="600" WidthRequest="600" HeightRequest="600" VerticalOptions="Fill" HorizontalOptions="Start">
+            <Grid x:Name="e_grid" ColumnSpacing="1" RowSpacing="1" MaximumWidthRequest="600" MaximumHeightRequest="600" WidthRequest="600" HeightRequest="600" VerticalOptions="Fill" HorizontalOptions="Start">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>

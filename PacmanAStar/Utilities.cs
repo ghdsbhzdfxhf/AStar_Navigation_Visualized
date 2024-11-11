@@ -124,6 +124,7 @@ namespace PacmanAStar
 
         public static void average_time(HorizontalStackLayout main_layout, string method_choice)
         {
+
             List<long> times = new List<long>();
             int grid_size = 40;
 

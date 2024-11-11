@@ -17,6 +17,7 @@ public partial class Results : ContentPage
 
         List<(int,int)> path = e_results.Item2 as List<(int,int)>;
         int node_count = e_results.Item1;
+        int max_frontier = e_results.Item3;
 
         for (int i = 0; i < n; i++)
         {
@@ -53,7 +54,7 @@ public partial class Results : ContentPage
         e_layout.Add(new Label
         {
             Margin = 10,
-            Text = $"Node count: {node_count}{" ",10}" + $"Steps: {path.Count}{" ",10}" + $"Time: {time_e.ToString("ss\\.ffff")}s"
+            Text = $"Node count: {node_count}{" ",10}" + $"Steps: {path.Count}{" ",10}" + $"Time: {time_e.ToString("ss\\.ffff")}s\n" + $"Max frontier: {max_frontier}"
         });
 
     }
@@ -62,6 +63,7 @@ public partial class Results : ContentPage
     {
         List<(int, int)> path = m_results.Item2 as List<(int, int)>;
         int node_count = m_results.Item1;
+        int max_frontier = m_results.Item3;
 
         for (int i = 0; i < n; i++)
         {
@@ -98,7 +100,7 @@ public partial class Results : ContentPage
         m_layout.Add(new Label
         {
             Margin = 10,
-            Text = $"Node count: {node_count}{" ",10}" + $"Steps: {path.Count}{" ",10}" + $"Time: {time_m.ToString("ss\\.ffff")}s"
+            Text = $"Node count: {node_count}{" ",10}" + $"Steps: {path.Count}{" ",10}" + $"Time: {time_m.ToString("ss\\.ffff")}s\n" + $"Max frontier: {max_frontier}"
         });
 
         //BoxView boxView = new BoxView

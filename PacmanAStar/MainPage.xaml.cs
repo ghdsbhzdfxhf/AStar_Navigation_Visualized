@@ -52,7 +52,6 @@ namespace PacmanAStar
         private void Results_clicked(object sender, EventArgs e)
         {
             DateTime time;
-            Stopwatch stopwatch = new Stopwatch();
 
             time = DateTime.Now;
             var m_results = AStar.A_STAR((int.Parse(start_node[0].ToString()), int.Parse(start_node[1].ToString())), (int.Parse(destination[0].ToString()), int.Parse(destination[1].ToString())), random_grid);
@@ -63,6 +62,25 @@ namespace PacmanAStar
             TimeSpan duration_e = time - DateTime.Now;
 
             Navigation.PushAsync(new Results(e_results, m_results, random_grid, grid_size, start_node, duration_m, duration_e));
+        }
+
+        private async void Results2_Clicked(object sender, EventArgs e)
+        {
+            DateTime time;
+
+            time= DateTime.Now;
+            var result_bfs = algs.BFS((int.Parse(start_node[0].ToString()), int.Parse(start_node[1].ToString())), (int.Parse(destination[0].ToString()), int.Parse(destination[1].ToString())), random_grid);
+            TimeSpan bfs_time = time - DateTime.Now;
+
+            time = DateTime.Now;
+            var result_dfs = algs.DFS((int.Parse(start_node[0].ToString()), int.Parse(start_node[1].ToString())), (int.Parse(destination[0].ToString()), int.Parse(destination[1].ToString())), random_grid);
+            TimeSpan dfs_time = time - DateTime.Now;
+
+            time = DateTime.Now;
+            var result_ids = algs.IDS((int.Parse(start_node[0].ToString()), int.Parse(start_node[1].ToString())), (int.Parse(destination[0].ToString()), int.Parse(destination[1].ToString())), random_grid);
+            TimeSpan ids_time = time - DateTime.Now;
+
+            await Navigation.PushAsync(new Results2(bfs_time, dfs_time, ids_time, result_bfs, result_dfs, result_ids, grid_size, random_grid, start_node));
         }
     }
 

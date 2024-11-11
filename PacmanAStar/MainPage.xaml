@@ -17,6 +17,7 @@
         <Button Text="A* Manhattan" Clicked="A_Start_Manhattan" FontSize="Large" Padding="5" Margin="10" MaximumWidthRequest="600"/>
         <Button Text="A* Equlidean" Clicked="A_Start_Equlidean" FontSize="Large" Padding="5" Margin="10" MaximumWidthRequest="600"/>
         <Button Text="Results" Clicked="Results_clicked" FontSize="Large" Padding="5" Margin="10" MaximumWidthRequest="600"/>
+        <Button Text="BFS-DFS-IDS" Clicked="Results2_Clicked" FontSize="Large" Padding="5" Margin="10" MaximumWidthRequest="600"/>
         
 
     </StackLayout>
